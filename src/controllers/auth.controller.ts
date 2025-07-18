@@ -13,7 +13,7 @@ export const register = async (req: Request, res:Response) => {
     // check if user exists
     const existingUser = await User.findOne({ email })
     if (existingUser) {
-        throw new CustomError("User already exists", 400)
+        throw new CustomError("User already exists with provided email", 400);
     }
 
     const hashPassword = await hash(password)
